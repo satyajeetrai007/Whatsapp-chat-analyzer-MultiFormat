@@ -6,7 +6,8 @@ import preprocessing
 import HIndividual as i
 import HOverall as o
 
-st.sidebar.title(':red[WHA]**LYZER**')
+st.sidebar.title(':red[WHA]**LYZER-24H**')
+st.sidebar.info("Make sure chat is in 24 hour format")
 
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 if uploaded_file is not None:
