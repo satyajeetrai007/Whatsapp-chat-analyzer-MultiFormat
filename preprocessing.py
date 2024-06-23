@@ -2,9 +2,11 @@ import re
 import pandas as pd
 import datetime
 
-def preprocessing(data):
-
-    pattern = '\d{1,2}/\d{1,2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s'
+def pre_processing(data,format):
+    if format == '24 hour format':
+        pattern = '\d{1,2}/\d{1,2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s'
+    else:
+        pattern = '\d{1,2}/\d{1,2}/\d{2,4},\s\d{1,2}:\d{2}\s\w{2}\s-\s'
 
     message = re.split(pattern,data)[1:]
 
@@ -17,7 +19,12 @@ def preprocessing(data):
     date_str_cleaned = df['dates'].replace('\u202f', ' ')
 
     # Defined the correct format string
-    date_format='%d/%m/%Y, %H:%M - '
+    if format == '24 hour format':
+        date_format = '%d/%m/%Y, %H:%M - '
+    else:
+        date_format = "%d/%m/%y, %I:%M %p - "
+    
+
 
     # Converted to datetime
     date_time_obj = pd.to_datetime(date_str_cleaned, format=date_format)
