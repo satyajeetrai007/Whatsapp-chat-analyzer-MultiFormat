@@ -6,15 +6,18 @@ import preprocessing
 import HIndividual as i
 import HOverall as o
 
-st.sidebar.title(':red[WHA]**LYZER-24H**')
-st.sidebar.info("Make sure chat is in 24 hour format")
+st.sidebar.title(':red[WHA]**LYZER**')
 
-uploaded_file = st.sidebar.file_uploader("Choose a file")
-if uploaded_file is not None:
+st.sidebar.info("Upload here and select correct format.")
+uploaded_file12 = st.sidebar.file_uploader("Choose a file" ,key = '12h')
+
+format = st.sidebar.radio(label = 'format' , options = ['24 hour format','12 hour format'])
+
+if uploaded_file12 is not None:
     
-    bytes_data = uploaded_file.getvalue()
+    bytes_data = uploaded_file12.getvalue()
     data = bytes_data.decode('utf-8')
-    df = preprocessing.preprocessing(data)
+    df = preprocessing.pre_processing(data,format)
 
     unique_user_list = df['users'].unique().tolist()
     unique_user_list.remove('group_notification')
@@ -27,3 +30,4 @@ if uploaded_file is not None:
             o.overall(df,user)
         else :
             i.individual(df,user)
+
