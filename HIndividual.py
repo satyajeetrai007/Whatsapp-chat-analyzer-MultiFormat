@@ -169,7 +169,7 @@ def iword_cloud(df,user):
     
 def imost_common_words(df,user):
     df = df[df['users'] == user]
-    f = open('.venv\stop_hinglish.txt','r', encoding='utf-8')
+    f = open('stop_hinglish.txt','r', encoding='utf-8')
     stop_words = f.read().split()
 
     temp = df[df['users'] != 'group_notification']
