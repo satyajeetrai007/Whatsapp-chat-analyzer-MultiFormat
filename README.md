@@ -1,3 +1,3 @@
 # Whatsapp-chat-analyzer-Multi-format
 ### Donot click on this link , instead paste url into your browser.(when redirected from github , app is not completely visible)
-App Link - [https://whalyzer-24h.streamlit.app/](https://whalyzer-multiformat.streamlit.app/)
+App Link - (https://whalyzer-multiformat.streamlit.app/)
