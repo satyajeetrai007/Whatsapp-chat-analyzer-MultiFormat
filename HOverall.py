@@ -159,7 +159,7 @@ def oword_cloud(df,user):
 
 
 def omost_common_words(df):
-    f = open('.venv\stop_hinglish.txt','r',encoding='utf-8')
+    f = open('stop_hinglish.txt','r',encoding='utf-8')
     stop_words = f.read().split()
 
 
